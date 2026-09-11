@@ -8,4 +8,4 @@ jobs:
     name: Teste
     runs-on: ubuntu-latest
     steps:
-    - run: "Olá, Fatec!"
+    - run: echo "Olá, Fatec!"
