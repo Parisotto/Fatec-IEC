@@ -1,0 +1,31 @@
+# SINTAXE DE VARIÁVEIS
+# ${{ variavel }}
+# github.actor, github.event_name, github.ref
+# github.repository, github.workspace
+# runner.os
+# job.status
+
+name: Variáveis de ações do GitHub
+run-name: ${{ github.actor }} está testando GitHub Actions
+
+on: push
+jobs:
+  Explorando-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "O job disparou um ${{ github.event_name }}"
+      - run: echo Rodando em um servidor ${{ runner.os }}
+      - run: echo 'O nome da branch é ${{ github.ref }}'
+      - run: echo O repositório é ${{ github.repository }}
+
+      - name: Checkout  no repositório do código
+        uses: actions/checkout@v4
+
+      - run: echo Repositório ${{ github.repository }}
+      
+      - name: Listar os arquivos no repositório
+        run: |
+          ls ${{ github.workspace }}
+          echo O status do job é ${{ job.status }}
+      
+      
